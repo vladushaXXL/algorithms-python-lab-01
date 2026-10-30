@@ -1,20 +1,29 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-# Создайте списки:
 
-# моя семья (минимум 3 элемента, есть еще дедушки и бабушки, если что)
-my_family = []
+def father_height(family_height):
+    """Рост отца."""
+    for name, height in family_height:
+        if name == 'папа':
+            return height
+    return None
 
-# список списков приблизительного роста членов вашей семьи
-my_family_height = [
-    # ['имя', рост],
-]
 
-# Выведите на консоль рост отца в формате
-#   Рост отца - ХХ см
+def total_family_height(family_height):
+    """Суммарный рост всех членов семьи."""
+    return sum(height for _, height in family_height)
 
-# Выведите на консоль общий рост вашей семьи как сумму ростов всех членов
-#   Общий рост моей семьи - ХХ см
 
-# TODO здесь ваш код
+if __name__ == '__main__':
+    my_family = ['мама', 'папа', 'брат', 'сестра', 'бабушка', 'дедушка']
+    my_family_height = [
+        ['мама', 165],
+        ['папа', 180],
+        ['брат', 175],
+        ['сестра', 160],
+        ['бабушка', 155],
+        ['дедушка', 170],
+    ]
+    print(f'Рост отца - {father_height(my_family_height)} см')
+    print(f'Общий рост моей семьи - {total_family_height(my_family_height)} см')
